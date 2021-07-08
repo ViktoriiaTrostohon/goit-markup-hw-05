@@ -347,6 +347,32 @@ body {
   margin-right: 30px;
 }
 
+.studio-image {
+  position: relative;
+}
+
+.studio-image-description {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 70px;
+  left: 0;
+  bottom: 0;
+  background-color: rgba(47, 48, 58, 0.8);
+}
+
+.studio-image-name {
+  /* transform: translateY(100%); */
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.17;
+  text-align: center;
+  text-transform: uppercase;
+  color: var(--primary-white-color);
+}
+
 /* Our team */
 .employees.section {
   background-color: #f5f4fa;
