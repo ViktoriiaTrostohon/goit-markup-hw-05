@@ -4,6 +4,8 @@
   --primary-white-color: #ffffff;
   --accent-color: #2196f3;
   --main-icon-color: #afb1b8;
+  --duration: 250ms;
+  --speed: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* Global resets and classes */
@@ -50,6 +52,56 @@ body {
   padding-bottom: 94px;
 }
 
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.2);
+  opacity: 1;
+  transition: opacity var(--duration) var(--speed);
+}
+
+.backdrop.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+.backdrop.is-hidden .modal {
+  transform: scale(1.5) translate(-50%, -50%);
+}
+
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: scale(1) translate(-50%, -50%);
+  width: 528px;
+  height: 581px;
+  background-color: var(--primary-white-color);
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
+    0px 2px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  transition: transform var(--duration) var(--speed);
+}
+
+.close-button {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  background-color: transparent;
+  cursor: pointer;
+  padding: 9px;
+}
+
 /* Header: logo */
 .logo {
   margin-right: 93px;
@@ -93,21 +145,38 @@ body {
 }
 
 .nav-item {
-  color: var(--title-text-color);
+  position: relative;
   font-weight: 500;
   font-size: 14px;
   line-height: 1.14;
   letter-spacing: 0.02em;
   text-decoration: none;
+  color: var(--title-text-color);
 }
 
 .nav-item:hover,
 .nav-item:focus {
   color: var(--accent-color);
+  transition: color var(--duration) var(--speed);
 }
+
 .nav-item.current {
+  position: relative;
   color: var(--accent-color);
 }
+
+.nav-item.current::after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 45px;
+  width: 100%;
+  height: 4px;
+  border-radius: 2px;
+  background-color: var(--accent-color);
+  cursor: pointer;
+}
+
 /* Header: contacts */
 .contacts {
   display: flex;
@@ -137,11 +206,14 @@ body {
 .contacts-item:focus {
   color: var(--accent-color);
   fill: var(--accent-color);
+  transition: color var(--duration) var(--speed);
+  transition: fill var(--duration) var(--speed);
 }
 
 .contacts-icon {
   margin-right: 10px;
   fill: currentColor;
+  transition: fill var(--duration) var(--speed);
 }
 
 /* Hero, bgc temporary */
@@ -184,6 +256,8 @@ body {
   line-height: 1.87;
   letter-spacing: 0.06em;
   cursor: pointer;
+  transition: color var(--duration) var(--speed),
+    background-color var(--duration) var(--speed);
 }
 .hero-button:hover,
 .hero-button:focus {
