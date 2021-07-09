@@ -56,8 +56,6 @@ body {
   position: fixed;
   top: 0;
   left: 0;
-  /* bottom: 0;
-  right: 0; */
   width: 100vw;
   height: 100vh;
   background-color: rgba(0, 0, 0, 0.2);
@@ -104,6 +102,14 @@ body {
   background-color: transparent;
   cursor: pointer;
   padding: 9px;
+}
+
+.close-button:hover,
+.close-button:focus {
+  fill: var(--primary-white-color);
+  background-color: var(--accent-color);
+  transition: fill var(--duration) var(--speed),
+    background-color var(--duration) var(--speed);
 }
 
 /* Header: logo */
@@ -210,8 +216,8 @@ body {
 .contacts-item:focus {
   color: var(--accent-color);
   fill: var(--accent-color);
-  transition: color var(--duration) var(--speed);
-  transition: fill var(--duration) var(--speed);
+  transition: color var(--duration) var(--speed),
+    fill var(--duration) var(--speed);
 }
 
 .contacts-icon {
@@ -441,6 +447,8 @@ body {
 .network-link:focus {
   fill: var(--primary-white-color);
   background-color: var(--accent-color);
+  transition: fill var(--duration) var(--speed),
+    background-color var(--duration) var(--speed);
 }
 
 /* Clients */
@@ -471,6 +479,8 @@ body {
 .clients-link:focus {
   fill: var(--accent-color);
   border: 1px solid var(--accent-color);
+  transition: fill var(--duration) var(--speed),
+    border var(--duration) var(--speed);
 }
 
 /* Footer */
@@ -504,6 +514,7 @@ body {
 .virtual-address-link:hover,
 .virtual-address-link:focus {
   color: var(--accent-color);
+  transition: color var(--duration) var(--speed);
 }
 .google-maps-address {
   color: var(--primary-white-color);
