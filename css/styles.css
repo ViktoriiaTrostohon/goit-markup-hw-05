@@ -441,6 +441,8 @@ body {
   padding: 12px;
   fill: var(--main-icon-color);
   border-radius: 50%;
+  transition: fill var(--duration) var(--speed),
+    background-color var(--duration) var(--speed);
 }
 
 .network-link:hover,
@@ -668,15 +670,15 @@ div.product-description {
   line-height: 1.56;
   color: var(--primary-white-color);
   background-color: rgba(33, 150, 243, 0.9);
-  transition: transform var(--duration) var(--speed);
+  transition: transform var(--duration) var(--speed),
+    opacity var(--duration) var(--speed);
 }
 
 .product-item-link:hover .product-item-overlay,
 .product-item-link:focus .product-item-overlay {
   transform: translateY(0%);
-  /* transition: transform var(--duration) var(--speed); */
-  /* opacity var(--duration) var(--speed),
-    background-color var(--duration) var(--speed); */
+  transition: transform var(--duration) var(--speed),
+    opacity var(--duration) var(--speed);
   opacity: 1;
 }
 .product-item-link {
